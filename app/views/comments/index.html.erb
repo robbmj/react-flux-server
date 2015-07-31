@@ -1,0 +1,20 @@
+<h1>Listing articles</h1>
+<%= link_to 'New Comment', new_comment_path %>
+<table>
+  <tr>
+    <th>Author</th>
+    <th>Text</th>
+  </tr>
+ 
+  <% @comments.each do |comment| %>
+    <tr>
+      <td><%= comment.author %></td>
+      <td><%= comment.text %></td>
+      <td><%= link_to 'Show', comment_path(comment) %></td>
+      <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
+      <td><%= link_to 'Destroy', comment_path(comment),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
